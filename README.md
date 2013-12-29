@@ -30,7 +30,7 @@ Number of blocks: 32
   +--------------------+
 </pre>
 
-I tried to go with a simple solution for this problem, before trying some recusive backtracking optimization mess. The simple solution I can up with is a greedy algorithm that searches for rows that have a width of one.
+I tried to go with a simple solution for this problem, before trying some recusive backtracking optimization mess. The simple solution I came up with is a greedy algorithm that searches for rows that have a width of one.
 
 I search for rows of one because I know there MUST be a row of width one extending through that point. Pretty simple idea, but it's important.
 
