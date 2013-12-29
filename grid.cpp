@@ -23,6 +23,8 @@ struct Rect {
 struct Map {
   unsigned int x, y;
   vector<vector<char>> grid;
+  char fillCounter;
+  Map() : fillCounter('A') {}
 
   char safeGet(int xPos, int yPos) const {
     if (xPos >= (int)x || xPos < 0 || yPos >= (int)y || yPos < 0) return '0';
@@ -38,7 +40,12 @@ struct Map {
       cout << endl << "ERROR: Can't fill rect " << xPos << ' ' << yPos << endl;
       exit(0);
     }
-    grid[xPos][yPos]='2';
+    grid[xPos][yPos]=fillCounter;
+  }
+
+  void doneFill() {
+    fillCounter++;
+    if (fillCounter == '[') fillCounter = 'a';
   }
 
   friend ostream& operator<< (ostream& stream, const Map& m) {
@@ -89,6 +96,7 @@ Rect expandSingle(Map& m, int x, int y) {
     while (m.safeGet(x1+1, y) == '1') { x1++; m.fill(x1,y); } 
     while (m.safeGet(x2-1, y) == '1') { x2--; m.fill(x2,y); }
   }
+  m.doneFill();
   Rect r = {x1, y1, x2, y2};
   return r;
 }
@@ -121,6 +129,7 @@ Rect expandRect(Map &m, int x, int y) {
 
     if (!validDown && !validRight) break;
   }
+  m.doneFill();
   Rect r = {x1, y1, x2, y2};
   return r;
 }
@@ -156,7 +165,7 @@ Coord getAnyCornerSpot(const Map& m) {
 int main() {
   Map m = readMap("in2.txt");
 
-  int counter = 0;
+  int counter = 1;
   while (!isDone(m)) {
     cout << endl << "-- Counter " << counter << " --" << endl;
     Coord singleCoord = getSingle(m); cout << "Coord: " << singleCoord.x << ' ' << singleCoord.y << endl;

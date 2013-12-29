@@ -5,6 +5,29 @@ Gridmancer
 
 Number of blocks: 32
 
+  +--------------------+
+  |AAAAAAAAAAAAAAAAAAAA|
+  |BBBB     C   D  EEE |
+  |         C   D   ff |
+  |         C   D   ff |
+  |      FFFCGGGD   ff |
+  |  H    ccC  IDJ  ff |
+  |  H    ccC  IDJ  ff |
+  | KH    ccC  IDJ  ff |
+  | KHLLLLLLCMMIDJdddd |
+  |NK     OO      dddd |
+  |NK     P       dddd |
+  |N              dddd |
+  |    Q      RR  dddd |
+  |    Q          dddd |
+  |   SQTTT       dddd |
+  |   S   U       eee  |
+  |   S   UVVVVVVVVVV  |
+  |bbbS   UWWW  XXXX   |
+  |bbbS  YUZ       a   |
+  |bbbS   U            |
+  +--------------------+
+
 I tried to go with a simple solution for this problem, before trying some recusive backtracking optimization mess. The simple solution I can up with is a greedy algorithm that searches for rows that have a width of one.
 
 I search for rows of one because I know there MUST be a row of width one extending through that point. Pretty simple idea, but it's important.
