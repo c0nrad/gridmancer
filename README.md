@@ -5,6 +5,7 @@ Gridmancer
 
 Number of blocks: 32
 
+<pre>
   +--------------------+
   |AAAAAAAAAAAAAAAAAAAA|
   |BBBB     C   D  EEE |
@@ -27,6 +28,7 @@ Number of blocks: 32
   |bbbS  YUZ       a   |
   |bbbS   U            |
   +--------------------+
+</pre>
 
 I tried to go with a simple solution for this problem, before trying some recusive backtracking optimization mess. The simple solution I can up with is a greedy algorithm that searches for rows that have a width of one.
 
